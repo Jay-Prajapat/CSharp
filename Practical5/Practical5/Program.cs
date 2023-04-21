@@ -10,12 +10,17 @@ namespace Practical5
     {
         static void Main(string[] args)
         {
-            int[] arr = { 1, 2, 3, 4, 5 };
+            int[] arr = new int[5];
+            Console.WriteLine("Enter value of Arrays");
+            for (int i = 0; i < 5; i++)
+            {
+                arr[i] = int.Parse(Console.ReadLine());
+            }
             for (int i = 0; i < 6; i++)
             {
                 try
                 {
-                    Console.WriteLine(arr[i]);
+                    Console.WriteLine($"Array[{i}] : {arr[i]}");
                 }
                 catch(IndexOutOfRangeException ex) 
                 {
