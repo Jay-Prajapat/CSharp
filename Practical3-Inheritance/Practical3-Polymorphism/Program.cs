@@ -11,21 +11,21 @@ namespace Practical3_Polymorphism
        
         static void Main(string[] args)
         {
-            Bird myBrid = new Bird();
-            Bird myDuck = new Duck();
-            Duck myDuck1 = new Duck();
-            myBrid.Voice();
-            myDuck.Voice();
-            myDuck1.Voice();
+            Bird eagle = new Bird();
+            Bird crow = new Duck();
+            Duck duck = new Duck();
+            eagle.Voice();
+            crow.Voice();
+            duck.Voice();
 
         }
     }
     public class Bird
     {
         /// <summary>
-        /// This is a Brid class method and will print the voice of bird.
+        /// This is a Brid class virtual method and will print the voice of bird.
         /// </summary>
-        public void Voice()
+        public virtual void Voice()
         {
             Console.WriteLine("Turr Turr");
         }
@@ -33,9 +33,9 @@ namespace Practical3_Polymorphism
     public class Duck : Bird
     {
         /// <summary>
-        /// This is a method of Duck class and will print the voice Duck.
+        /// This is override method of Duck class and will print the voice Duck.
         /// </summary>
-        public void Voice()
+        public override void Voice()
         {
             Console.WriteLine("Quack Quack");
         }
