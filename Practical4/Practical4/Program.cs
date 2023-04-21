@@ -11,46 +11,56 @@ namespace Practical4
     {
         static void Main(string[] args)
         {
-            Student student1 = new Student();
+            Student student = new Student();
             Console.WriteLine("Enter name of student.");
-            student1.Name = Console.ReadLine();
+            student.Name = Console.ReadLine();
             Console.WriteLine("Enter marks of student.");
             for (int i = 0; i < 5; i++)
             {
-                student1.Marks[i] = Convert.ToDecimal(Console.ReadLine());
+                decimal mark = Convert.ToDecimal(Console.ReadLine());
+                if (mark >= 0 && mark <= 100)
+                {
+                    student.Marks[i] = mark;
+                }
+                else
+                {
+                    Console.WriteLine("Please enter valid mark between 0 to 100");
+                    i--;
+                }
             }
-
             Console.WriteLine("Choose Option from Below :");
             Console.WriteLine("1.Aggregate:\n2.MinMark\n3.MaxMarks\n4.Grades\n5.Exit");
             while (true)
             {
-
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
                     case (int)Student.Options.Aggregate:
-                        Console.WriteLine($"The name of student is {student1.Name} and the average marks is {student1.CalculateAverageMarks(student1.Marks)}");
+                        Console.WriteLine($"The name of student is {student.Name} and the average marks is {student.CalculateAverageMarks(student.Marks)}");
                         break;
                     case (int)Student.Options.MinMark:
-                        Console.WriteLine($"The Minimum marks is {student1.FindMinimumMarks(student1.Marks)}");
+                        Console.WriteLine($"The Minimum marks is {student.FindMinimumMarks(student.Marks)}");
                         break;
                     case (int)Student.Options.MaximumMark:
-                        Console.WriteLine($"The Maximum marks is {student1.FindMaximumMarks(student1.Marks)}");
+                        Console.WriteLine($"The Maximum marks is {student.FindMaximumMarks(student.Marks)}");
                         break;
                     case (int)Student.Options.Grade:
-                        decimal averageMarks = student1.CalculateAverageMarks(student1.Marks);
-                        Console.WriteLine($"The Grade is {student1.CalculateGrade(averageMarks)}");
+                        decimal averageMarks = student.CalculateAverageMarks(student.Marks);
+                        string grade = student.CalculateGrade(averageMarks);
+                        if (grade != null)
+                        {
+                            Console.WriteLine($"The Grade is {grade}");
+                        }
                         break;
                     case 5:
                         Environment.Exit(0);
                         break;
-                    default: 
+                    default:
                         Console.WriteLine("Choose Valid option!!!");
                         break;
 
                 }
             }
-
         }
     }
     public class Student
@@ -66,11 +76,15 @@ namespace Practical4
         public decimal CalculateAverageMarks(decimal[] marks)
         {
             decimal sum = 0;
-            for (int i = 0; i < marks.Length; i++)
+            if (marks != null)
             {
-                sum += marks[i];
+                for (int i = 0; i < marks.Length; i++)
+                {
+                    sum += marks[i];
+                }
+
+                AverageMarks = sum / marks.Length;
             }
-            AverageMarks = sum / marks.Length;
             return AverageMarks;
         }
         /// <summary>
@@ -101,13 +115,13 @@ namespace Practical4
             string grade = "";
             switch (mark)
             {
-                case decimal a when mark > 90:
+                case decimal a when mark >= 90:
                     grade = "A";
                     break;
-                case decimal a when mark > 80:
+                case decimal a when mark >= 80:
                     grade = "B";
                     break;
-                case decimal a when mark > 70:
+                case decimal a when mark >= 70:
                     grade = "C";
                     break;
                 case decimal a when mark < 70:
