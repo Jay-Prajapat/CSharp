@@ -10,37 +10,63 @@ namespace LiskovSubstitutionPrinciple
     {
         static void Main(string[] args)
         {
-            IFruit fruit = new Orange();
-            fruit.GetColor();
-            fruit = new Apple();
-            fruit.GetColor();
+            Car car = new Car();
+            MotorCycle motorCycle = new MotorCycle();
+
+            DriveVehicle(car);
+            DriveVehicle(motorCycle);
         }
-    }
-
-    public interface IFruit
-    {
-        void GetColor();
-    }
-
-    public class Apple : IFruit
-    {
-        /// <summary>
-        /// The apple class method will print the color of apple.
-        /// </summary>
-        public void GetColor()
+        public static void DriveVehicle(Vehicle vehicle)
         {
-            Console.WriteLine("Color is Red");
+            vehicle.Start();
+            vehicle.Drive();
+            vehicle.Stop();
         }
     }
 
-    public class Orange : IFruit
+    public abstract class Vehicle
     {
-        /// <summary>
-        /// The Orange class meethod will print the color of orange.
-        /// </summary>
-        public void GetColor()
+        public abstract void Start();
+        public abstract void Drive();
+        public abstract void Stop();
+
+    }
+
+    public class Car : Vehicle
+    {
+        public override void Drive()
         {
-            Console.WriteLine("Color is Orange");
+            Console.WriteLine("Driving the Car...");
+        }
+
+        public override void Start()
+        {
+            Console.WriteLine("Starting the Car...");
+        }
+
+        public override void Stop()
+        {
+            Console.WriteLine("Stoping the Car...");
         }
     }
+
+    public class MotorCycle : Vehicle
+    {
+        public override void Drive()
+        {
+            Console.WriteLine("Driving the MotorCycle...");
+        }
+
+        public override void Start()
+        {
+            Console.WriteLine("Starting the MotorCycle...");
+        }
+
+        public override void Stop()
+        {
+            Console.WriteLine("Stoping the MotorCycle...");
+        }
+    }
+
+    
 }

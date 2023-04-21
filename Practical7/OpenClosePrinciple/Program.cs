@@ -10,21 +10,51 @@ namespace OpenClosePrinciple
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Please Enter Amount");
-            double amount = Convert.ToDouble(Console.ReadLine());
+            Circle circle = new Circle();
+            circle.Radius = 10;
+            double circleArea = circle.CalculateArea();
+            Console.WriteLine($"Circle Area : {circleArea}");
 
-            Invoice FInvoice = new FinalInvoice();
-            double FInvoiceAmount = FInvoice.GetInvoiceDiscount(amount);
-            Console.WriteLine($"Final Invoice : {FInvoiceAmount}");
+            Rectangle rectangle = new Rectangle();
+            rectangle.Width = 10;
+            rectangle.Height = 25;
+            double rectangleArea = rectangle.CalculateArea();
+            Console.WriteLine($"Rectangle Area : {rectangleArea}");
 
-            Invoice PInvoice = new ProposedInvoice();
-            double PInvoiceAmount = PInvoice.GetInvoiceDiscount(amount);
-            Console.WriteLine($"Proposed Invoice : {PInvoiceAmount}");
+            Square square= new Square();
+            square.SideLength = 10;
+            double squareArea = square.CalculateArea();
+            Console.WriteLine($"Square Area : {squareArea}");
+        }
+    }
+    public interface IShape
+    {
+        double CalculateArea();
+    }
+    public class Circle : IShape
+    {
+        public double Radius { get; set; }
+        public double CalculateArea()
+        {
+            return Math.PI * Math.Pow(Radius,2);
+        }
+    }
+    public class Rectangle : IShape
+    {
+        public double Width { get; set; }
+        public double Height { get; set; }  
+        public double CalculateArea()
+        {
+            return Width* Height;
+        }
+    }
 
-            Invoice RInvoice = new RecurringInvoice();
-            double RInvoiceAmount = RInvoice.GetInvoiceDiscount(amount);
-            Console.WriteLine($"Final Invoice : {RInvoiceAmount}");
-
+    public class Square : IShape
+    {
+        public double SideLength { get; set; }
+        public double CalculateArea()
+        {
+            return Math.Pow(SideLength, 2);
         }
     }
 }
