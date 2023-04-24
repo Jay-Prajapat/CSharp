@@ -25,7 +25,7 @@ namespace Practical8
         }
         public static IManageUserThings GetManageUserThings() 
         {
-            return new ManageUserThings();    
+            return new ManageStudent();    
         }
         public static IStudentInfo GetStudentInfo()
         {

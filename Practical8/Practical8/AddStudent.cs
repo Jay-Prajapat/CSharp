@@ -41,6 +41,7 @@ namespace Practical8
 
                 stdList.Add(student);
                 studentList.Students = stdList;
+                Console.WriteLine("----- User Added Successfully -----");
             }
             catch (FormatException e)
             {

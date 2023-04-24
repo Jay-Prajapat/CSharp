@@ -22,21 +22,28 @@ namespace Practical8
                 int id = int.Parse(Console.ReadLine());
                
                 IStudent student = studentList.Students.Find(std => std.Id == id);
-                int x = studentList.Students.IndexOf(student);
-                Console.WriteLine("Enter first name : ");
-                studentList.Students[x].FirstName = Console.ReadLine();
+                if(student != null)
+                {
+                    int index = studentList.Students.IndexOf(student);
+                    Console.WriteLine("Enter first name : ");
+                    studentList.Students[index].FirstName = Console.ReadLine();
 
-                Console.WriteLine("Enter last name : ");
-                studentList.Students[x].LastName = Console.ReadLine();
+                    Console.WriteLine("Enter last name : ");
+                    studentList.Students[index].LastName = Console.ReadLine();
 
-                Console.WriteLine("Enter email id of student : ");
-                studentList.Students[x].Email = Console.ReadLine();
+                    Console.WriteLine("Enter email id of student : ");
+                    studentList.Students[index].Email = Console.ReadLine();
 
-                Console.WriteLine("Enter age of student : ");
-                studentList.Students[x].Age = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Enter age of student : ");
+                    studentList.Students[index].Age = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("Enter phone number of student : ");
-                studentList.Students[x].PhoneNumber = Convert.ToInt64(Console.ReadLine());
+                    Console.WriteLine("Enter phone number of student : ");
+                    studentList.Students[index].PhoneNumber = Convert.ToInt64(Console.ReadLine());
+                }
+                else
+                {
+                    Console.WriteLine($"Student with id {id} does exist!!!" );
+                }
 
             }
             catch (Exception ex)
@@ -51,11 +58,11 @@ namespace Practical8
         /// <param name="id"></param>
         public override void DeleteStudent(IManageStudentList studentList, int id)
         {
-            if(studentList.Students.Exists(std => std.Id == id))
-            {
-                IStudent student = studentList.Students.Find(std => std.Id == id);
-                int x = studentList.Students.IndexOf(student);
-                studentList.Students.Remove(studentList.Students[x]);
+            
+            IStudent student = studentList.Students.Find(std => std.Id == id);
+            if(student != null) { 
+                int index = studentList.Students.IndexOf(student);
+                studentList.Students.RemoveAt(index);
             }
             else
             {

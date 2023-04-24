@@ -18,9 +18,9 @@ namespace Practical8
             List<IStudent> students = studentList.Students;
             try
             {
-                if (students.Exists(std => std.Id == id))
-                {
-                    IStudent student = students.Find(std => std.Id == id);
+               
+                IStudent student = students.Find(std => std.Id == id);
+                if(student != null) { 
                     Console.WriteLine("---------------------------------");
 
                     Console.WriteLine($"ID : {student.Id} \nName : {student.FirstName + " " + student.LastName} \n" +
