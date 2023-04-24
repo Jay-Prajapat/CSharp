@@ -8,12 +8,42 @@ namespace BankManagement
 {
     public class Person
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string MobileNumber {get;set;}
-       public string AccountNumber { get; set; }
-        public double Balance { get; set; }
-        public int Age { get; set; }
+        private int _id;
+        private string _name;
+        private string _mobileNumber;
+        private string _accountNumber;
+        private double _balance;
+        private int _age;
+        public int Id 
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+        public string Name
+        {
+            get { return _name; }
+            set { _name= value; }
+        }
+        public string MobileNumber 
+        {
+            get { return _mobileNumber; }
+            set { _mobileNumber = value; }
+        }
+       public string AccountNumber 
+        {
+            get { return _accountNumber; }
+            set { _accountNumber = value; }
+        }
+        public double Balance 
+        {
+            get { return _balance; } 
+            set { _balance = value; }
+        }
+        public int Age 
+        {
+            get { return _age; }
+            set { _age = value; }
+        }
         private List<Transaction> _transactions = new List<Transaction>();
         public List<Transaction> Transactions
         {
@@ -29,12 +59,7 @@ namespace BankManagement
             this.AccountNumber = accountNumber;
             this.Age = age;
             this.Balance = 500;
-        }
-
-        public void DisplayPersonDetails()
-        {
-            Console.WriteLine($"Name : {Name}\nMobile Number : {MobileNumber}\nAge : {Age}\nBalance : {Balance}");
-        }
+        }       
         public void Withdraw()
         {
             Console.WriteLine("Enter amount : ");

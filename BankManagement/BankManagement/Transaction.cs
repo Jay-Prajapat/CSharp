@@ -17,12 +17,5 @@ namespace BankManagement
             this.Amount = amount;
             this.IsCredit = isCredit;
         }
-
-        public void DisplayTransactionDetails()
-        {
-            string transactionType = IsCredit ? "Credit" : "Debit";
-            Console.WriteLine($"Description : {Description}\nAmount : {Amount}\nType : {transactionType}");
-        }
-
     }
 }

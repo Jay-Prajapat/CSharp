@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BankManagement
 {
-    public class ManagePersonList
+    public sealed class ManagePersonList
     {
         private List<Person> _persons = new List<Person>();
         public List<Person> Persons 
@@ -63,7 +63,7 @@ namespace BankManagement
                 persons.Add(person);
 
                 personList.Persons = persons;
-
+                Console.WriteLine("\n----- User Added Successfully -----\n");
             }
             catch (Exception ex)
             {

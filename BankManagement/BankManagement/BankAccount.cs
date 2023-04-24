@@ -7,7 +7,7 @@ using System.Text.RegularExpressions;
 
 namespace BankManagement
 {
-    public class BankAccount : Account,IUserManager
+    public sealed class BankAccount : Account,IUserManager
     {
         public void DeleteUser(ManagePersonList personList, int id)
         {
