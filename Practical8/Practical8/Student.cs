@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Practical8
 {
-    public class Student : IStudent
+    public class Student 
     {
         private int _id;
         private string _firstName;

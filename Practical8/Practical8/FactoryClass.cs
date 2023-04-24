@@ -11,7 +11,7 @@ namespace Practical8
     /// </summary>
     public static class FactoryClass
     {
-        public static IStudent GetStudent()
+        public static Student GetStudent()
         {
             return new Student();
         }
@@ -19,7 +19,7 @@ namespace Practical8
         {
             return new AddStudent();
         }
-        public static IManageStudentList GetManageStudentList()
+        public static ManageStudentList GetManageStudentList()
         {
             return new ManageStudentList();
         }

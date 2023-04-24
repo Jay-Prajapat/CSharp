@@ -8,7 +8,7 @@ namespace Practical8
 {
     public abstract class ManageTeacher
     {
-        public abstract void UpdateStudent(IManageStudentList studentList);
-        public abstract void DeleteStudent(IManageStudentList studentList, int id);
+        public abstract void UpdateStudent(ManageStudentList studentList);
+        public abstract void DeleteStudent(ManageStudentList studentList, int id);
     }
 }

@@ -12,12 +12,12 @@ namespace Practical8
         /// This method will take the student details and add this student to the student list.
         /// </summary>
         /// <param name="studentList"></param>
-        public void AddNewStudent(IManageStudentList studentList)
+        public void AddNewStudent(ManageStudentList studentList)
         {
             try
             {
-                IStudent student = FactoryClass.GetStudent();
-                List<IStudent> stdList = studentList.Students;
+                Student student = FactoryClass.GetStudent();
+                List<Student> stdList = studentList.Students;
                 Console.WriteLine("---- Add New Student ----");
                 Console.WriteLine();
 

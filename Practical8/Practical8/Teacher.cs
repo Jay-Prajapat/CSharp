@@ -12,7 +12,7 @@ namespace Practical8
         /// This method will update the student information in the student list.
         /// </summary>
         /// <param name="studentList"></param>
-        public override void UpdateStudent(IManageStudentList studentList)
+        public override void UpdateStudent(ManageStudentList studentList)
         {
             Console.WriteLine("---- Update Student Info. ----");
             Console.WriteLine("Enter student id which you want to update");
@@ -21,7 +21,7 @@ namespace Practical8
                
                 int id = int.Parse(Console.ReadLine());
                
-                IStudent student = studentList.Students.Find(std => std.Id == id);
+                Student student = studentList.Students.Find(std => std.Id == id);
                 if(student != null)
                 {
                     int index = studentList.Students.IndexOf(student);
@@ -56,10 +56,10 @@ namespace Practical8
         /// </summary>
         /// <param name="studentList"></param>
         /// <param name="id"></param>
-        public override void DeleteStudent(IManageStudentList studentList, int id)
+        public override void DeleteStudent(ManageStudentList studentList, int id)
         {
             
-            IStudent student = studentList.Students.Find(std => std.Id == id);
+            Student student = studentList.Students.Find(std => std.Id == id);
             if(student != null) { 
                 int index = studentList.Students.IndexOf(student);
                 studentList.Students.RemoveAt(index);

@@ -46,9 +46,7 @@
     <Compile Include="AddStudent.cs" />
     <Compile Include="FactoryClass.cs" />
     <Compile Include="IAddStudent.cs" />
-    <Compile Include="IManageStudentList.cs" />
     <Compile Include="IManageUserThings.cs" />
-    <Compile Include="IStudent.cs" />
     <Compile Include="IStudentInfo.cs" />
     <Compile Include="ManageStudentList.cs" />
     <Compile Include="ManageTeacher.cs" />

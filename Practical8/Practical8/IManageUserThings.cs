@@ -2,6 +2,6 @@
 {
     public interface IManageUserThings
     {
-        void ManageUsers(IManageStudentList studentList);
+        void ManageUsers(ManageStudentList studentList);
     }
 }

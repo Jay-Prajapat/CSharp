@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Practical8
 {
-    public class ManageStudent : IManageUserThings
+    public class ManageStudent:IManageUserThings 
     {
         public enum Options
         {
@@ -22,7 +22,7 @@ namespace Practical8
         /// option selection we can do different CRUD operation.
         /// </summary>
         /// <param name="studentList"></param>
-        public void ManageUsers(IManageStudentList studentList)
+        public void ManageUsers(ManageStudentList studentList)
         {
             while (true)
             {

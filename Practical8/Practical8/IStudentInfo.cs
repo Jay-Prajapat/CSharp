@@ -2,7 +2,7 @@
 {
     public interface IStudentInfo
     {
-        void ViewStudent(IManageStudentList studentList);
-        void ViewStudent(IManageStudentList studentList, int id);
+        void ViewStudent(ManageStudentList studentList);
+        void ViewStudent(ManageStudentList studentList, int id);
     }
 }

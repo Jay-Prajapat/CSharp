@@ -10,8 +10,8 @@ namespace Practical8
     {
         static void Main(string[] args)
         {
-            List<IStudent> students = new List<IStudent>();
-            IStudent student = FactoryClass.GetStudent();
+            List<Student> students = new List<Student>();
+            Student student = FactoryClass.GetStudent();
 
             student.Id = 1;
             student.FirstName = "Jay";
@@ -21,7 +21,7 @@ namespace Practical8
             student.PhoneNumber = 598547451;
 
             students.Add(student);
-            IManageStudentList studentList = FactoryClass.GetManageStudentList();
+            ManageStudentList studentList = FactoryClass.GetManageStudentList();
             studentList.Students = students;
             IManageUserThings m = FactoryClass.GetManageUserThings();
             m.ManageUsers(studentList);

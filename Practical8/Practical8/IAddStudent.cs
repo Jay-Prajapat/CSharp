@@ -2,6 +2,6 @@
 {
     public interface IAddStudent
     {
-        void AddNewStudent(IManageStudentList studentList);
+        void AddNewStudent(ManageStudentList studentList);
     }
 }

@@ -13,13 +13,13 @@ namespace Practical8
         /// </summary>
         /// <param name="studentList"></param>
         /// <param name="id"></param>
-        public void ViewStudent(IManageStudentList studentList, int id)
+        public void ViewStudent(ManageStudentList studentList, int id)
         {
-            List<IStudent> students = studentList.Students;
+            List<Student> students = studentList.Students;
             try
             {
                
-                IStudent student = students.Find(std => std.Id == id);
+                Student student = students.Find(std => std.Id == id);
                 if(student != null) { 
                     Console.WriteLine("---------------------------------");
 
@@ -39,13 +39,13 @@ namespace Practical8
         /// This method will print all students details from the student list.
         /// </summary>
         /// <param name="studentList"></param>
-        public void ViewStudent(IManageStudentList studentList)
+        public void ViewStudent(ManageStudentList studentList)
         {
-            List<IStudent> students = studentList.Students;
+            List<Student> students = studentList.Students;
             if (students.Count != 0)
             {
                 Console.WriteLine("---------------------------------");
-                foreach (IStudent student in students)
+                foreach (Student student in students)
                 {
                     Console.WriteLine($"ID : {student.Id} \nName : {student.FirstName + " " + student.LastName} \n" +
                         $"Age : {student.Age} \nEmail : {student.Email} \nContact No: {student.PhoneNumber}");
